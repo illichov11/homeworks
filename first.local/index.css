@@ -1,0 +1,36 @@
+ body{
+ 	background: url(https://www.meme-arsenal.com/memes/b7eadc764559d050737ccd86b1c9d831.jpg);
+ 	background-size: cover;
+ }
+ .button {
+ 	font-size: 40pt;
+ 		margin: 0 auto;
+            display: block;
+ 		color: black;
+ 		background-color : deepskyblue;
+ 		background-size: auto;
+ 		border: 0px;
+
+}
+ #yes{
+ 	font-size: 40pt;
+ 	text-align: center;
+	color: green;
+}
+#no{
+	font-size: 40pt;
+	text-align: center;
+	color: red;
+}
+
+.var {
+	font-size: 40pt;
+	font-style: italic;
+	margin: 0 auto;
+	display: block;
+	margin-top: 20px;
+	
+}
+.form-group{
+	color:white;
+}
