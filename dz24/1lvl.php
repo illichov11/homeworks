@@ -35,39 +35,35 @@ public function __construct()
 {
 }
 }
-class Water {
+class Water
+{
     private $temperature;
-    function a($temperature) {
-        if(is_object($temperature)) {
-        $this->temperature = $temperature;
-            }
-        else return;
-    }
-    function get_aggregate_state(){
-        if (is_object($this->temperature)) {
-            $this->temperature->aggregationState();
-        }
-       else echo 'Man, u have some troubles';
-    }
-}
 
-$water = new Water();
-$stdin = fopen('php://stdin', 'r');
-echo 'Hello, look through the window and tell me the temperature, nigga' . PHP_EOL;
-$degrees = intval(fgets($stdin));
-if ($degrees < 0){
+    function a($temperature)
+    {
+        if (!is_object($temperature)) return false;
+        $this->temperature = $temperature;
+        return $this;
+    }
+
+        function get_aggregate_state(){
+            if (method_exists($this->temperature, 'aggregationState')
+                && is_subclass_of($this->temperature, "AggregationState")) {
+                $this->temperature->aggregationState();
+            } else echo 'Man, u have some troubles';
+        }
+    }
+
+
+    $water = new Water();
     $ice = new Ice();
-    $water->a($ice);
-    $water->get_aggregate_state();
-}
-elseif($degrees > 100){
     $steam = new Steam();
-    $water->a($steam);
-    $water->get_aggregate_state();
-}
-elseif($degrees >= 0 && $degrees <= 100){
     $liquid = new Liquid();
-    $water->a($liquid);
-    $water->get_aggregate_state();
-}
-else echo "I SAID TEMPERATURE, MAN, WTF???";
+
+    $things = [$ice, $steam, $liquid];
+
+    foreach ($things as $thing){
+
+        $water->a($thing)->get_aggregate_state();
+
+    }
