@@ -16,6 +16,6 @@ class Water
         if (method_exists($this->temperature, 'aggregationState')
             && is_subclass_of($this->temperature, "AggregationState")) {
             $this->temperature->aggregationState();
-        } else echo 'Man, u have some troubles';
+        } else echo 'Man, u have some troubles ';
     }
 }
